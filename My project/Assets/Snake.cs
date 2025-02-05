@@ -22,6 +22,11 @@ public class Snake : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        if(collision.tag == "killsPlayer")
+        {
+            speed = 0f;
+            rotationSpeed = 0f;
+            GameObject.FindObjectOfType<GameManager>().EndGame();            
+        }
     }
 }
